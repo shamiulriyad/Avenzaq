@@ -1,0 +1,78 @@
+/* Admin Layout - Core Layout Structure */
+
+:root {
+  --admin-sidebar-width: 240px;
+  --admin-navbar-height: 64px;
+  --admin-primary: #1a56db;
+  --admin-primary-hover: #1447c0;
+  --admin-primary-light: #dbeafe;
+  --admin-success: #10b981;
+  --admin-warning: #f59e0b;
+  --admin-danger: #ef4444;
+  --admin-bg: #f9fafb;
+  --admin-surface: #ffffff;
+  --admin-text: #1f2937;
+  --admin-text-muted: #6b7280;
+  --admin-border: #e5e7eb;
+  --admin-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --admin-transition: 0.3s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--admin-bg);
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--admin-transition);
+}
+
+.admin-main.sidebar-closed {
+  margin-left: 60px;
+}
+
+/* Main Content */
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+.admin-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-content::-webkit-scrollbar-thumb {
+  background: var(--admin-border);
+  border-radius: 4px;
+}
+
+.admin-content::-webkit-scrollbar-thumb:hover {
+  background: var(--admin-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-main {
+    margin-left: 60px !important;
+  }
+
+  .admin-content {
+    padding: 24px 16px 16px 16px;
+  }
+}
